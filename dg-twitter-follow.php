@@ -47,7 +47,7 @@ class DGTwitterFollow_Widget extends WP_Widget {
             echo $before_title . __( $title ) . $after_title;
         endif;
 
-        $this->followButton( $instance );
+        self::followButton( $instance );
 	    echo $after_widget;
     }
 
@@ -57,7 +57,7 @@ class DGTwitterFollow_Widget extends WP_Widget {
      * @param array $args
      * @return void
      */
-    function followButton( $args ){
+    static function followButton( $args ){
 
         $default = array(
                          'screen_name' => 'dachisgroup_eu',
