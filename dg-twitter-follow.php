@@ -98,10 +98,12 @@ class DGTwitterFollow_Widget extends WP_Widget {
         $link = 'https://twitter.com/'.$screen_name;
 
         $assembled_link = sprintf( __('<a href="%s" class="twitter-follow-button" %s>Follow @%s</a>'), $link, $settings, $screen_name );
-
+		
+		$protocol = is_ssl()? 'https' : 'http' ;
+		
         echo $assembled_link;
         ?>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="http://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="<?php echo $protocol;?>://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
         <?php
     }
 
